@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Golf</title>
+</head>
+<body>
+  
+  <script type="text/javascript">
+    // ES5
+    // function r(n){m=Math;return m.pow(m.ceil(m.sqrt(n)),2)}
+
+    // ES6
+    m=Math;r=(n)=>m.pow(m.ceil(m.sqrt(n)),2);
+
+    console.log(r(3)); // 4
+    console.log(r(9)); // 16
+    console.log(r(17)); // 25
+    console.log(r(354)); // 361
+  </script>
+</body>
+</html>
