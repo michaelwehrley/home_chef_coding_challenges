@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bowl</title>
+</head>
+<body>
+  <div id="main">
+  <div>
+  <script type="text/javascript">
+    "use strict";
+    window.BOWL = {};
+  </script>
+  <script type="text/javascript" src="./frames.js"></script>
+  <script type="text/javascript">
+    "use strict";
+
+    function bowl(number){
+      Math.pow(Math.ceil(Math.sqrt(number)), 2);
+    }
+
+    debugger;
+    document.getElementById("main").innerHTML = BOWL.frames[0];
+    console.log(bowl(3)); // 4
+    console.log(bowl(9)); // 16
+    console.log(bowl(17)); // 25
+    console.log(bowl(354)); // 361
+  </script>
+</body>
+</html>
