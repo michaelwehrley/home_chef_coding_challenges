@@ -19,8 +19,18 @@
       Math.pow(Math.ceil(Math.sqrt(number)), 2);
     }
 
-    debugger;
-    document.getElementById("main").innerHTML = BOWL.frames[0];
+    var timerId;
+    var frameNumber = 0;
+    function displayFrame() {
+      document.getElementById("main").innerHTML = BOWL.frames[frameNumber]
+      frameNumber+=1;
+      if (frameNumber >= BOWL.frames.length) {
+        clearInterval(timerId);
+      }
+    }
+
+    timerId = setInterval(displayFrame, 100);
+
     console.log(bowl(3)); // 4
     console.log(bowl(9)); // 16
     console.log(bowl(17)); // 25
