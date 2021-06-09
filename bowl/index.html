@@ -22,7 +22,10 @@
     var timerId;
     var frameNumber = 0;
     function displayFrame() {
-      document.getElementById("main").innerHTML = BOWL.frames[frameNumber]
+      // for node or console
+      console.log(BOWL.frames[frameNumber]);
+      // for view via browser
+      document.getElementById("main").innerHTML = '<pre>'+BOWL.frames[frameNumber]+'</pre>';
       frameNumber+=1;
       if (frameNumber >= BOWL.frames.length) {
         clearInterval(timerId);
