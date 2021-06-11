@@ -1,8 +1,8 @@
 (function() {
-  "use strict";
+"use strict";
 
-  // Thanks for image inspiration from https://www.asciiart.eu/sports-and-outdoors/bowling & https://www.asciiart.eu/space/stars
-  var frames = [
+// Thanks for image inspiration from https://www.asciiart.eu/sports-and-outdoors/bowling & https://www.asciiart.eu/space/stars
+var frames = [
 `
                                                                                                                 
                                                                                                                 
@@ -581,26 +581,26 @@
 `
   ]
 
-  function bowl(input) {
-    var frameNumber = 0;
-    var result = Math.pow(Math.ceil(Math.sqrt(input)), 2);
-    var timerId = setInterval(function() {
-      return frameNumber = displayFrame(input, frameNumber, timerId, result)
-    }, 300);
+function bowl(input) {
+  var frameNumber = 0;
+  var result = Math.pow(Math.ceil(Math.sqrt(input)), 2);
+  var timerId = setInterval(function() {
+    return frameNumber = displayFrame(input, frameNumber, timerId, result)
+  }, 300);
 
-    return result;
+  return result;
+}
+
+function displayFrame(input, frameNumber, timerId, result) {
+  document.getElementById("main").innerHTML = '<pre>' + frames[frameNumber] + '</pre>';
+
+  frameNumber += 1;
+  if (frameNumber > frames.length) {
+    clearInterval(timerId);
+    document.getElementById("main").innerHTML = '<h1>Thanks for bowling!</h1><h2>Your answer is: ' + result + '</h2>';
   }
-
-  function displayFrame(input, frameNumber, timerId, result) {
-    document.getElementById("main").innerHTML = '<pre>' + frames[frameNumber] + '</pre>';
-
-    frameNumber += 1;
-    if (frameNumber > frames.length) {
-      clearInterval(timerId);
-      document.getElementById("main").innerHTML = '<h1>Thanks for bowling!</h1><h2>Your answer is: ' + result + '</h2>';
-    }
-    return frameNumber;
-  }
+  return frameNumber;
+}
 
   return window.bowl = bowl;
 }(window));
