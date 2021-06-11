@@ -20,7 +20,7 @@
       var result = Math.pow(Math.ceil(Math.sqrt(input)), 2);
       var timerId = setInterval(function() {
         return frameNumber = displayFrame(input, frameNumber, timerId, result)
-      }, 200);
+      }, 300);
 
       return result;
     }
@@ -29,7 +29,7 @@
       document.getElementById("main").innerHTML = '<pre>'+BOWL.frames[frameNumber]+'</pre>';
 
       frameNumber += 1;
-      if (frameNumber >= BOWL.frames.length) {
+      if (frameNumber > BOWL.frames.length) {
         clearInterval(timerId);
         document.getElementById("main").innerHTML = '<h1>Thanks for bowling!</h1><h2>Your answer is: '+result+'</h2>';
       }
