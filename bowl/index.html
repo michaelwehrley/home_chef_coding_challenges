@@ -599,12 +599,12 @@
     }
 
     function displayFrame(input, frameNumber, timerId, result) {
-      document.getElementById("main").innerHTML = '<pre>'+frames[frameNumber]+'</pre>';
+      document.getElementById("main").innerHTML = '<pre>' + frames[frameNumber] + '</pre>';
 
       frameNumber += 1;
       if (frameNumber > frames.length) {
         clearInterval(timerId);
-        document.getElementById("main").innerHTML = '<h1>Thanks for bowling!</h1><h2>Your answer is: '+result+'</h2>';
+        document.getElementById("main").innerHTML = '<h1>Thanks for bowling!</h1><h2>Your answer is: ' + result + '</h2>';
       }
       return frameNumber;
     }
