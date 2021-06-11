@@ -15,33 +15,28 @@
   <script type="text/javascript">
     "use strict";
 
-    function bowl(number) {
-      return Math.pow(Math.ceil(Math.sqrt(number)), 2);
+    function bowl(input) {
+      var frameNumber = 0;
+      var result = Math.pow(Math.ceil(Math.sqrt(input)), 2);
+      var timerId = setInterval(function() {
+        return frameNumber = displayFrame(input, frameNumber, timerId, result)
+      }, 200);
+
+      return result;
     }
 
-    var timerId;
-    var frameNumber = 0;
-    function displayFrame() {
-      if (window) {
-        document.getElementById("main").innerHTML = '<pre>'+BOWL.frames[frameNumber]+'</pre>';
-      } else {
-        console.log(BOWL.frames[frameNumber]);
-      }
+    function displayFrame(input, frameNumber, timerId, result) {
+      document.getElementById("main").innerHTML = '<pre>'+BOWL.frames[frameNumber]+'</pre>';
 
-      frameNumber+=1;
+      frameNumber += 1;
       if (frameNumber >= BOWL.frames.length) {
         clearInterval(timerId);
+        document.getElementById("main").innerHTML = '<h1>Thanks for bowling!</h1><h2>Your answer is: '+result+'</h2>';
       }
+      return frameNumber;
     }
 
-    if (window) {
-      timerId = setInterval(displayFrame, 200);
-    }
-
-    console.log(bowl(3)); // 4
     console.log(bowl(9)); // 16
-    console.log(bowl(17)); // 25
-    console.log(bowl(354)); // 361
   </script>
 </body>
 </html>
