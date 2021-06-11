@@ -15,24 +15,28 @@
   <script type="text/javascript">
     "use strict";
 
-    function bowl(number){
-      Math.pow(Math.ceil(Math.sqrt(number)), 2);
+    function bowl(number) {
+      return Math.pow(Math.ceil(Math.sqrt(number)), 2);
     }
 
     var timerId;
     var frameNumber = 0;
     function displayFrame() {
-      // for node or console
-      console.log(BOWL.frames[frameNumber]);
-      // for view via browser
-      document.getElementById("main").innerHTML = '<pre>'+BOWL.frames[frameNumber]+'</pre>';
+      if (window) {
+        document.getElementById("main").innerHTML = '<pre>'+BOWL.frames[frameNumber]+'</pre>';
+      } else {
+        console.log(BOWL.frames[frameNumber]);
+      }
+
       frameNumber+=1;
       if (frameNumber >= BOWL.frames.length) {
         clearInterval(timerId);
       }
     }
 
-    timerId = setInterval(displayFrame, 200);
+    if (window) {
+      timerId = setInterval(displayFrame, 200);
+    }
 
     console.log(bowl(3)); // 4
     console.log(bowl(9)); // 16
